@@ -12,6 +12,7 @@
       "schematics": {},
       "root": "",
       "sourceRoot": "src",
+
       "prefix": "app",
       "architect": {
         "build": {
