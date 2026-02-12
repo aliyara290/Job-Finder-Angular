@@ -1,0 +1,50 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "firstName": "Ali",
+      "lastName": "Yara",
+      "email": "contact@aliyara.com",
+      "password": "Yara2001"
+    },
+    {
+      "id": "6613",
+      "firstName": "Test",
+      "lastName": "User",
+      "email": "test@example.com",
+      "password": "test123"
+    },
+    {
+      "id": "4b33",
+      "firstName": "Ahmed",
+      "lastName": "Allam",
+      "email": "ahmed@gmail.com",
+      "password": "Yara2001"
+    }
+  ],
+  "userApplications": [
+    {
+      "id": "1",
+      "userId": 1,
+      "offerId": 1,
+      "apiSource": null,
+      "title": "Software Engineer",
+      "company": "DXC",
+      "location": "Rabat",
+      "url": "https://www.offer.com",
+      "status": "pending",
+      "notes": "nothing for now",
+      "dateAdded": "01/01/2025"
+    }
+  ],
+  "userFavorites": [
+    {
+      "id": "1",
+      "userId": 1,
+      "offerId": 1,
+      "title": "Software Engineer",
+      "company": "DXC",
+      "location": "Rabat"
+    }
+  ]
+}
