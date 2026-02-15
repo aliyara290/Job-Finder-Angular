@@ -13,7 +13,6 @@ import { AuthService } from '../../../../core/services/auth.service';
   selector: 'app-login-from',
   imports: [CommonModule, ReactiveFormsModule, RouterModule],
   templateUrl: './login-from.component.html',
-  styleUrl: './login-from.component.css',
 })
 export class LoginFromComponent implements OnInit {
   loginForm!: FormGroup;
@@ -34,27 +33,21 @@ export class LoginFromComponent implements OnInit {
   }
 
   onSubmit(): void {
-    // Clear previous error message
     this.errorMessage = '';
 
-    // Check if form is valid
     if (this.loginForm.invalid) {
       this.loginForm.markAllAsTouched();
       return;
     }
 
-    // Set loading state
     this.isLoading = true;
 
-    // Get form values
     const credentials = this.loginForm.value;
 
-    // Call auth service to login
     this.authService.login(credentials).subscribe({
       next: (authUser) => {
         console.log('Login successful:', authUser);
         this.isLoading = false;
-        // Navigate to home page after successful login
         this.router.navigate(['/']);
       },
       error: (error) => {
@@ -65,7 +58,6 @@ export class LoginFromComponent implements OnInit {
     });
   }
 
-  // Helper methods for template
   get email() {
     return this.loginForm.get('email');
   }
