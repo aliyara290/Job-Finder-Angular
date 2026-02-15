@@ -1,4 +1,4 @@
-// Complete user object from database (including password)
+// Complete profile object from database (including password)
 export interface User {
     id: string;
     firstName: string;

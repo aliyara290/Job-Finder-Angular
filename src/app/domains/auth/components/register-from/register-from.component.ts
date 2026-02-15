@@ -15,7 +15,6 @@ import { AuthService } from '../../../../core/services/auth.service';
   selector: 'app-register-from',
   imports: [CommonModule, ReactiveFormsModule, RouterModule],
   templateUrl: './register-from.component.html',
-  styleUrl: './register-from.component.css',
 })
 export class RegisterFromComponent implements OnInit {
   registerForm!: FormGroup;
@@ -44,7 +43,6 @@ export class RegisterFromComponent implements OnInit {
     );
   }
 
-  // Custom validator to check if passwords match
   passwordMatchValidator(control: AbstractControl): ValidationErrors | null {
     const password = control.get('password');
     const confirmPassword = control.get('confirmPassword');
@@ -59,30 +57,24 @@ export class RegisterFromComponent implements OnInit {
   }
 
   onSubmit(): void {
-    // Clear previous messages
     this.errorMessage = '';
     this.successMessage = '';
 
-    // Check if form is valid
     if (this.registerForm.invalid) {
       this.registerForm.markAllAsTouched();
       return;
     }
 
-    // Set loading state
     this.isLoading = true;
 
-    // Get form values (exclude confirmPassword)
     const { confirmPassword, ...registerData } = this.registerForm.value;
 
-    // Call auth service to register
     this.authService.register(registerData).subscribe({
       next: (user) => {
         console.log('Registration successful:', user);
         this.isLoading = false;
         this.successMessage = 'Registration successful! Redirecting to login...';
 
-        // Navigate to login page after 2 seconds
         setTimeout(() => {
           this.router.navigate(['/auth/login']);
         }, 2000);
@@ -96,7 +88,6 @@ export class RegisterFromComponent implements OnInit {
     });
   }
 
-  // Helper methods for template
   get firstName() {
     return this.registerForm.get('firstName');
   }

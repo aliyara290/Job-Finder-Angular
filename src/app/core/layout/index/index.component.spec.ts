@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SecondaryHeaderComponent } from './secondary-header.component';
+import { IndexComponent } from './index.component';
 
-describe('SecondaryHeaderComponent', () => {
-  let component: SecondaryHeaderComponent;
-  let fixture: ComponentFixture<SecondaryHeaderComponent>;
+describe('IndexComponent', () => {
+  let component: IndexComponent;
+  let fixture: ComponentFixture<IndexComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SecondaryHeaderComponent]
+      imports: [IndexComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(SecondaryHeaderComponent);
+    fixture = TestBed.createComponent(IndexComponent);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });
