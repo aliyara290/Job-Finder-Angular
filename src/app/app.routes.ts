@@ -16,6 +16,10 @@ export const routes: Routes = [
     ]
   },
   {
+    path: "jobs",
+    loadComponent: () => import("./domains/jobs/page/page.component").then((c) => c.PageComponent)
+  },
+  {
     path: "**",
     redirectTo: ""
   }
