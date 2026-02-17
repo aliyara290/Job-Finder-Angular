@@ -1,0 +1,164 @@
+<div class="max-w-5xl mx-auto flex flex-col gap-4 h-full">
+  @if (jobDetails$ | async; as job) {
+
+    <div class="bg-white rounded-2xl shadow-md p-6">
+
+      <div class="flex items-start justify-between mb-4 flex-wrap gap-4">
+
+        <div class="flex items-center gap-4 flex-1">
+          <div class="w-15 h-15 bg-gradient-to-br from-purple-200 to-purple-300 rounded-xl flex items-center justify-center flex-shrink-0">
+            <span class="text-4xl font-bold text-gray-800">{{job?.company?.charAt(0) || 'C'}}</span>
+          </div>
+
+          <div class="flex-1">
+            <h1 class="text-2xl md:text-3xl font-bold text-gray-900">
+              {{job?.title}}
+            </h1>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <button class="w-12 h-12 cursor-pointer flex items-center justify-center hover:bg-purple-50 rounded-full transition-colors duration-200">
+            <svg class="w-7 h-7 text-purple-500" fill="none" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-between flex-wrap gap-4">
+
+        <div class="flex items-center gap-2 text-gray-600 text-sm md:text-base flex-wrap">
+          @if (job?.company) {
+            <span class="font-semibold text-gray-800">{{job.company}}</span>
+            <span class="text-purple-500">•</span>
+          }
+          @if (job?.location) {
+            <span>{{job.location}}</span>
+            <span class="text-purple-500">•</span>
+          }
+          @if (job?.department) {
+            <span>{{job.department}}</span>
+            <span class="text-purple-500">•</span>
+          }
+          @if (job?.openDate) {
+            <span>Posted {{job.openDate | date:'MMM d, yyyy'}}</span>
+            <span class="text-purple-500">•</span>
+          }
+          @if (job?.closeDate) {
+            <span>Closes {{job.closeDate | date:'MMM d, yyyy'}}</span>
+          }
+        </div>
+
+        @if (job?.applyUrl) {
+          <div class="flex items-center">
+            <a [href]="job.applyUrl" target="_blank" class="bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white font-semibold py-2 px-8 rounded-xl transition-all duration-300 shadow-md flex items-center gap-2">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+              </svg>
+              Apply Now
+            </a>
+          </div>
+        }
+      </div>
+
+    </div>
+
+    <div class="bg-white rounded-2xl shadow-md p-6">
+
+      <h2 class="text-2xl font-bold text-gray-900 mb-6">Job Details</h2>
+
+      @if (job?.salaryMin || job?.salaryMax) {
+        <div class="mb-6 p-4 bg-purple-50 rounded-xl">
+          <h3 class="text-lg font-bold text-gray-900 mb-2">Compensation</h3>
+          <p class="text-gray-700">
+            ${{job.salaryMin | number}} - ${{job.salaryMax | number}}
+            @if (job?.salaryInterval) {
+              <span class="text-gray-600">{{job.salaryInterval}}</span>
+            }
+          </p>
+        </div>
+      }
+
+
+      @if (job?.securityClearance) {
+        <div class="mb-6 p-4 bg-purple-50 rounded-xl">
+          <h3 class="text-lg font-bold text-gray-900 mb-2">Security Clearance Required</h3>
+          <p class="text-gray-700">{{job.securityClearance}}</p>
+        </div>
+      }
+
+      @if (job?.jobSummary) {
+        <div class="mt-8">
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Job Summary</h3>
+          <div class="text-gray-700 leading-relaxed" [innerHTML]="job.jobSummary"></div>
+        </div>
+      }
+
+      @if (job.responsibilities && job.responsibilities.length > 0) {
+        <div class="mt-8">
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Major Duties and Responsibilities</h3>
+          <ul class="space-y-4 text-gray-700">
+            @for (responsibility of job.responsibilities; track responsibility) {
+              <li class="flex gap-3">
+                <span class="text-purple-600 font-bold text-xl flex-shrink-0">•</span>
+                <span>{{responsibility}}</span>
+              </li>
+            }
+          </ul>
+        </div>
+      }
+
+      @if (job?.qualificationSummary) {
+        <div class="mt-8">
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Qualifications</h3>
+          <div class="text-gray-700 leading-relaxed" [innerHTML]="job.qualificationSummary"></div>
+        </div>
+      }
+
+      @if (job?.education) {
+        <div class="mt-8">
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Education Requirements</h3>
+          <div class="text-gray-700 leading-relaxed" [innerHTML]="job.education"></div>
+        </div>
+      }
+
+    </div>
+  } @else {
+    <div class="bg-gradient-to-br from-purple-50 via-white to-purple-50 rounded-2xl shadow-md p-12 flex flex-col items-center justify-center overflow-hidden h-full min-h-[650px]">
+
+      <div class="relative z-10 flex flex-col items-center">
+
+        <div class="mb-8 relative">
+          <div class="w-48 h-48 bg-gradient-to-br from-purple-200 to-purple-300 rounded-3xl flex items-center justify-center transform rotate-6 transition-transform hover:rotate-0 duration-500">
+            <svg class="w-24 h-24 text-purple-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+            </svg>
+          </div>
+          <!-- Floating cursor pointer -->
+          <div class="absolute -right-6 -top-6 animate-pulse">
+            <svg class="w-12 h-12 text-purple-500" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M10.5 19.5l-5-12.5 12.5 5-5.5 2-2 5.5z"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Text Content -->
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4 text-center">
+          Your Dream Job Awaits
+        </h2>
+        <p class="text-lg text-gray-600 text-center mb-3 max-w-xl">
+          Select any opportunity from the list to explore its full details, requirements, and benefits
+        </p>
+        <p class="text-sm text-purple-600 font-semibold text-center flex items-center gap-2">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+          </svg>
+          Start by clicking a job card on the left
+        </p>
+
+      </div>
+    </div>
+  }
+
+</div>
