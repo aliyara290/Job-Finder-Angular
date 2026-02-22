@@ -1,12 +1,14 @@
-import {Component, OnInit, signal} from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { JobsService } from '../../service/jobs.service';
 import { JobDetails, JobsData } from '../../types/job.types';
-import {ActivatedRoute, Router} from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, map, switchMap, startWith } from 'rxjs';
-import {JobsItemSkeletonComponent} from '../jobs-item-skeleton/jobs-item-skeleton.component';
-import {JobItemComponent} from '../job-item/job-item.component';
-import {AsyncPipe} from '@angular/common';
-import {FilterService} from '../../service/filter.service';
+import { JobsItemSkeletonComponent } from '../jobs-item-skeleton/jobs-item-skeleton.component';
+import { JobItemComponent } from '../../../../shared/components/job-item/job-item.component';
+import { AsyncPipe } from '@angular/common';
+import { Store } from '@ngrx/store';
+import { selectAllFavorites } from '../../../favorites/store/favorite.selectors';
+import { Favorite } from '../../../favorites/types/favorites.types';
 
 @Component({
   selector: 'app-jobs-list',
@@ -27,13 +29,18 @@ export class JobsListComponent implements OnInit {
     numberOfPages: number;
   }>;
 
+  favorites$: Observable<Favorite[]>;
   currentPage = signal<number>(1);
+  private favoritesSnapshot: Favorite[] = [];
 
   constructor(
     private jobsService: JobsService,
     private route: ActivatedRoute,
     private router: Router,
+    private store: Store
   ) {
+    this.favorites$ = this.store.select(selectAllFavorites);
+    this.favorites$.subscribe(favs => this.favoritesSnapshot = favs);
   }
 
 
@@ -76,6 +83,18 @@ export class JobsListComponent implements OnInit {
     );
   }
 
+  getFavoriteForJob(jobId: string): Favorite | undefined {
+    return this.favoritesSnapshot.find(f => f.jobId === jobId);
+  }
+
+  isFavorited(jobId: string): boolean {
+    return !!this.getFavoriteForJob(jobId);
+  }
+
+  getFavoriteId(jobId: string): string | null {
+    return this.getFavoriteForJob(jobId)?.id ?? null;
+  }
+
   setSelectedJob(job: JobDetails) {
     this.jobsService.onJobClick(job);
   }
@@ -83,7 +102,7 @@ export class JobsListComponent implements OnInit {
   changePage(Page: number) {
     this.router.navigate([], {
       relativeTo: this.route,
-      queryParams: {Page},
+      queryParams: { Page },
       queryParamsHandling: 'merge',
       replaceUrl: false
     })
@@ -99,4 +118,3 @@ export class JobsListComponent implements OnInit {
     this.changePage(this.currentPage());
   }
 }
-
