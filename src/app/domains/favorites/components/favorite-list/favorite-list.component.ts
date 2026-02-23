@@ -6,7 +6,7 @@ import { removeFavorite } from '../../store/favorite.actions';
 import { Favorite } from '../../types/favorites.types';
 import { Observable } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
-import { JobCard } from '../../../../domains/jobs/types/job.types';
+import { JobCard } from '../../../jobs/types/job.types';
 
 @Component({
   selector: 'app-favorite-list',

@@ -4,6 +4,7 @@ import { FooterComponent } from '../footer/footer.component';
 import { HeaderComponent } from '../header/header.component';
 import { Store } from '@ngrx/store';
 import { loadFavorites } from '../../../domains/favorites/store/favorite.actions';
+import { loadApplications } from '../../../domains/applications-tracker/store/application.actions';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -25,8 +26,8 @@ export class IndexComponent implements OnInit {
   ngOnInit(): void {
     const userId = this.authService.getCurrentUser()?.id ?? '';
     if (userId) {
-      console.log("heeey" + userId)
       this.store.dispatch(loadFavorites({ userId }));
+      this.store.dispatch(loadApplications({ userId }));
     }
   }
 }
