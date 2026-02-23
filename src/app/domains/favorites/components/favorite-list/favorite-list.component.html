@@ -1,35 +1,35 @@
 @if (loading$ | async) {
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-  @for (i of [1, 2, 3]; track i) {
-  <div class="bg-white rounded-3xl shadow-lg p-5 animate-pulse">
-    <div class="flex items-start justify-between mb-4">
-      <div class="w-10 h-10 bg-purple-200 rounded-xl"></div>
-      <div class="w-10 h-10 rounded-full bg-gray-100"></div>
-    </div>
-    <div class="h-5 bg-gray-200 rounded mb-2 w-3/4"></div>
-    <div class="h-4 bg-gray-100 rounded mb-4 w-1/2"></div>
-    <div class="h-8 bg-purple-100 rounded-xl"></div>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+    @for (i of [1, 2, 3]; track i) {
+      <div class="bg-white rounded-3xl shadow-lg p-5 animate-pulse">
+        <div class="flex items-start justify-between mb-4">
+          <div class="w-10 h-10 bg-purple-200 rounded-xl"></div>
+          <div class="w-10 h-10 rounded-full bg-gray-100"></div>
+        </div>
+        <div class="h-5 bg-gray-200 rounded mb-2 w-3/4"></div>
+        <div class="h-4 bg-gray-100 rounded mb-4 w-1/2"></div>
+        <div class="h-8 bg-purple-100 rounded-xl"></div>
+      </div>
+    }
   </div>
-  }
-</div>
 } @else if ((favorites$ | async)?.length === 0) {
-<div class="flex flex-col items-center justify-center py-24 gap-6">
-  <div class="w-24 h-24 bg-purple-100 rounded-full flex items-center justify-center">
-    <svg class="w-12 h-12 text-purple-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round"
-        d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-    </svg>
+  <div class="flex flex-col items-center justify-center py-24 gap-6">
+    <div class="w-24 h-24 bg-purple-100 rounded-full flex items-center justify-center">
+      <svg class="w-12 h-12 text-purple-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round"
+              d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+      </svg>
+    </div>
+    <div class="text-center">
+      <h2 class="text-2xl font-bold text-gray-800 mb-2">No favorites yet</h2>
+      <p class="text-gray-500">Click the heart icon on any job to save it here.</p>
+    </div>
   </div>
-  <div class="text-center">
-    <h2 class="text-2xl font-bold text-gray-800 mb-2">No favorites yet</h2>
-    <p class="text-gray-500">Click the heart icon on any job to save it here.</p>
-  </div>
-</div>
 } @else {
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-  @for (fav of favorites$ | async; track fav.id) {
-  <app-job-item [job]="toJobCard(fav)" [isFavorited]="true" [favoriteId]="fav.id">
-  </app-job-item>
-  }
-</div>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+    @for (fav of favorites$ | async; track fav.id) {
+      <app-job-item [job]="toJobCard(fav)" [isFavorited]="true" [favoriteId]="fav.id">
+      </app-job-item>
+    }
+  </div>
 }

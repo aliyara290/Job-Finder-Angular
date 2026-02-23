@@ -7,8 +7,10 @@ import { apiKeyInterceptor } from './core/interceptors/api-key-interceptor';
 import { provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { favoriteReducer } from './domains/favorites/store/favorite.reducers';
+import { applicationReducer } from './domains/applications-tracker/store/application.reducers';
 import { provideEffects } from '@ngrx/effects';
 import { FavoriteEffects } from './domains/favorites/store/favorite.effects';
+import { ApplicationEffects } from './domains/applications-tracker/store/application.effects';
 
 export const appConfig: ApplicationConfig = {
     providers: [
@@ -18,9 +20,10 @@ export const appConfig: ApplicationConfig = {
             apiKeyInterceptor
         ])),
         provideStore({
-            favorite: favoriteReducer
+            favorite: favoriteReducer,
+            applications: applicationReducer
         }),
         provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
-        provideEffects([FavoriteEffects])
+        provideEffects([FavoriteEffects, ApplicationEffects])
     ]
 };
