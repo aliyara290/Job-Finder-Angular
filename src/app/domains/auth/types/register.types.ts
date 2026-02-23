@@ -1,6 +1,5 @@
 import { User } from './login.types';
 
-// Registration request data
 export interface RegisterRequest {
     firstName: string;
     lastName: string;
@@ -8,7 +7,6 @@ export interface RegisterRequest {
     password: string;
 }
 
-// Registration response
 export interface RegisterResponse {
     user: User;
 }

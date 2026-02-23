@@ -1,6 +1,6 @@
 import {Component, signal} from '@angular/core';
 import {Router, RouterLink} from '@angular/router';
-import {AuthService} from '../../services/auth.service';
+import {AuthService} from '../../../../core/services/auth.service';
 import {Observable} from 'rxjs';
 import {AsyncPipe} from '@angular/common';
 

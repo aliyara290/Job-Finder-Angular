@@ -1,24 +1,31 @@
 {
   "users": [
     {
-      "id": "1",
+      "id": "a8a1",
+      "firstName": "Phoebe",
+      "lastName": "James",
+      "email": "qyhasywoni@mailinator.com",
+      "password": "Pa$$w0rd!"
+    },
+    {
+      "id": "b1fb",
+      "firstName": "Elton",
+      "lastName": "Browning",
+      "email": "xeher@mailinator.com",
+      "password": "Pa$$w0rd!"
+    },
+    {
+      "id": "8c16",
       "firstName": "Ali",
       "lastName": "Yara",
-      "email": "contact@aliyara.com",
+      "email": "ali@gmail.com",
       "password": "Yara2001"
     },
     {
-      "id": "6613",
-      "firstName": "Test",
-      "lastName": "User",
-      "email": "test@example.com",
-      "password": "test123"
-    },
-    {
-      "id": "4b33",
-      "firstName": "Ahmed",
-      "lastName": "Allam",
-      "email": "ahmed@gmail.com",
+      "id": "8c20",
+      "firstName": "Hiba",
+      "lastName": "Yara",
+      "email": "hiba@gmail.com",
       "password": "Yara2001"
     }
   ],
@@ -39,12 +46,134 @@
   ],
   "userFavorites": [
     {
-      "id": "1",
-      "userId": 1,
-      "offerId": 1,
-      "title": "Software Engineer",
-      "company": "DXC",
-      "location": "Rabat"
+      "id": "99b44642-3c55-4712-a621-be2581a69b2c",
+      "userId": "guest",
+      "jobId": "722102800",
+      "title": "Cyber Threat Analyst",
+      "employmentType": "",
+      "company": "Central Intelligence Agency",
+      "location": "Washington, District of Columbia",
+      "salaryMin": 63940,
+      "salaryMax": 158322,
+      "salaryInterval": "Per Year",
+      "applyUrl": "https://www.usajobs.gov:443/job/722102800"
+    },
+    {
+      "id": "e19d891a-feac-400c-8dab-1a974976bd09",
+      "userId": "guest",
+      "jobId": "722102800",
+      "title": "Cyber Threat Analyst",
+      "employmentType": "",
+      "company": "Central Intelligence Agency",
+      "location": "Washington, District of Columbia",
+      "salaryMin": 63940,
+      "salaryMax": 158322,
+      "salaryInterval": "Per Year",
+      "applyUrl": "https://www.usajobs.gov:443/job/722102800"
+    },
+    {
+      "id": "9f4113a9-be79-4cbf-bb24-c64570c8c30d",
+      "userId": "guest",
+      "jobId": "722102800",
+      "title": "Cyber Threat Analyst",
+      "employmentType": "",
+      "company": "Central Intelligence Agency",
+      "location": "Washington, District of Columbia",
+      "salaryMin": 63940,
+      "salaryMax": 158322,
+      "salaryInterval": "Per Year",
+      "applyUrl": "https://www.usajobs.gov:443/job/722102800"
+    },
+    {
+      "id": "4fc4b020-e7e9-48ae-b28d-da0918b1b0b8",
+      "userId": "guest",
+      "jobId": "722102800",
+      "title": "Cyber Threat Analyst",
+      "employmentType": "",
+      "company": "Central Intelligence Agency",
+      "location": "Washington, District of Columbia",
+      "salaryMin": 63940,
+      "salaryMax": 158322,
+      "salaryInterval": "Per Year",
+      "applyUrl": "https://www.usajobs.gov:443/job/722102800"
+    },
+    {
+      "id": "6a3e1d2c-b8d4-496c-be8d-a67f3d523878",
+      "userId": "guest",
+      "jobId": "722317000",
+      "title": "Resource Analyst",
+      "employmentType": "",
+      "company": "Central Intelligence Agency",
+      "location": "Washington, District of Columbia",
+      "salaryMin": 82396,
+      "salaryMax": 121785,
+      "salaryInterval": "Per Year",
+      "applyUrl": "https://www.usajobs.gov:443/job/722317000"
+    },
+    {
+      "id": "dc391aa1-46b7-4e62-9532-f226a3c76e53",
+      "userId": "guest",
+      "jobId": "723123400",
+      "title": "Technical Targeting Analyst",
+      "employmentType": "",
+      "company": "Central Intelligence Agency",
+      "location": "Washington, District of Columbia",
+      "salaryMin": 70623,
+      "salaryMax": 197200,
+      "salaryInterval": "Per Year",
+      "applyUrl": "https://www.usajobs.gov:443/job/723123400"
+    },
+    {
+      "id": "f3c762d4-db8e-44e1-8cb7-4f42f861e08b",
+      "userId": "guest",
+      "jobId": "722102800",
+      "title": "Cyber Threat Analyst",
+      "employmentType": "",
+      "company": "Central Intelligence Agency",
+      "location": "Washington, District of Columbia",
+      "salaryMin": 63940,
+      "salaryMax": 158322,
+      "salaryInterval": "Per Year",
+      "applyUrl": "https://www.usajobs.gov:443/job/722102800"
+    },
+    {
+      "id": "77dd5316-600c-4128-a441-f251d5d0c1ec",
+      "userId": "8c16",
+      "jobId": "722102800",
+      "title": "Cyber Threat Analyst",
+      "employmentType": "",
+      "company": "Central Intelligence Agency",
+      "location": "Washington, District of Columbia",
+      "salaryMin": 63940,
+      "salaryMax": 158322,
+      "salaryInterval": "Per Year",
+      "applyUrl": "https://www.usajobs.gov:443/job/722102800"
+    },
+    {
+      "id": "d5c672e6-bbe8-4918-ad96-898e39acab6d",
+      "userId": "8c16",
+      "jobId": "722317000",
+      "title": "Resource Analyst",
+      "employmentType": "",
+      "company": "Central Intelligence Agency",
+      "location": "Washington, District of Columbia",
+      "salaryMin": 82396,
+      "salaryMax": 121785,
+      "salaryInterval": "Per Year",
+      "applyUrl": "https://www.usajobs.gov:443/job/722317000"
+    },
+    {
+      "id": "bb47ec4b-2b96-4d19-9012-fdfd2094da1c",
+      "userId": "8c20",
+      "jobId": "722102800",
+      "title": "Cyber Threat Analyst",
+      "employmentType": "",
+      "company": "Central Intelligence Agency",
+      "location": "Washington, District of Columbia",
+      "salaryMin": 63940,
+      "salaryMax": 158322,
+      "salaryInterval": "Per Year",
+      "applyUrl": "https://www.usajobs.gov:443/job/722102800"
     }
   ]
 }
